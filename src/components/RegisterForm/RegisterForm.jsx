@@ -2,7 +2,7 @@ import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'Redux/auth/operations';
 
-function reduser(state, action) {
+function reducer(state, action) {
   switch (action.type) {
     case 'name':
       return {
@@ -25,7 +25,7 @@ function reduser(state, action) {
 }
 
 export const RegisterForm = () => {
-  const [state, setState] = useReducer(reduser, {
+  const [state, setState] = useReducer(reducer, {
     name: '',
     email: '',
     password: '',
