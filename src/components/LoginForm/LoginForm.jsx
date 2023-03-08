@@ -32,7 +32,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const hendleSubmit = e => {
-    e.preventDefolt();
+    e.preventDefault();
     dispatch(logIn(state));
   };
 

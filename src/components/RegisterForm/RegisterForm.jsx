@@ -37,23 +37,19 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const hendleSubmit = e => {
-    e.preventDefolt();
+    e.preventDefault();
     dispatch(register(state));
   };
 
   return (
     <form action="" onSubmit={hendleSubmit}>
-            <label htmlFor="">
+      <label htmlFor="">
         name
-        <input
-          onChange={hendleChengeInput}
-          name="name"
-          type="text"
-        />
+        <input onChange={hendleChengeInput} name="name" type="text" />
       </label>
       <label htmlFor="">
         email
-        <input onChange={hendleChengeInput} name="name" type="email" />
+        <input onChange={hendleChengeInput} email="email" type="email" />
       </label>
       <label htmlFor="">
         password
@@ -63,7 +59,7 @@ export const RegisterForm = () => {
           type="password"
         />
       </label>
-      <button type='submit'>register</button>
+      <button type="submit">register</button>
     </form>
   );
 };
