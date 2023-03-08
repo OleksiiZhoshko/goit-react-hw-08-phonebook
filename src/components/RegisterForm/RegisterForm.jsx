@@ -26,6 +26,7 @@ function reduser(state, action) {
 
 export const RegisterForm = () => {
   const [state, setState] = useReducer(reduser, {
+    name: '',
     email: '',
     password: '',
   });
