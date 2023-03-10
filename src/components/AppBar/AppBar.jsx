@@ -1,4 +1,4 @@
-import { Navigation } from 'components/Navigation/Navigation';
+import { Navigation } from 'components/Navigation/navigation';
 // pvsy
 import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
