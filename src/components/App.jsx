@@ -23,7 +23,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <b>Refreshing user...<Loader /></b>
   ) : (
       <Suspense fallback={
         <h1><Loader /></h1>
