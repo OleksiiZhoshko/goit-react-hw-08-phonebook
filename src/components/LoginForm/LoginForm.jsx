@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/operations';
+import css from './LoginForm.module.css';
 
 // function reduser(state, action) {
 //   switch (action.type) {
@@ -69,12 +70,12 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+      <label className={css.label}>
         Email
         <input type="email" name="email" />
       </label>
-      <label>
+      <label className={css.label}>
         Password
         <input type="password" name="password" />
       </label>

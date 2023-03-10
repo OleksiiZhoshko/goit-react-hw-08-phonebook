@@ -1,23 +1,19 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import { useAuth } from 'hooks/useAuth';
-import { Suspense } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useAuth } from 'hooks';
+import css from './Navigation.module.css';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
-      {isLoggedIn ? (
-        <NavLink to="/contacts">Contacts</NavLink>
-      ) : (
-        <>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/register">Register</NavLink>
-          <Suspense>
-            <Outlet />
-          </Suspense>
-        </>
+      <NavLink className={css.link} to="/">
+        Home
+      </NavLink>
+      {isLoggedIn && (
+        <NavLink className={css.link} to="/contacts">
+        Contacts
+        </NavLink>
       )}
     </nav>
   );

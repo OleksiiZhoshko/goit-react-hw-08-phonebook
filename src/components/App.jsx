@@ -1,13 +1,12 @@
-import { lazy, useEffect, Suspense } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { Navigation } from '../components/Navigation/navigation'
+import { Layout } from './Layout';
 import { PrivateRoute } from './route/PrivateRoute';
 import { RestrictedRoute } from './route/RestrictedRoute';
 import { refreshUser } from 'Redux/auth/operations';
-import { useAuth } from 'hooks/useAuth';
+import { useAuth } from 'hooks';
 import { Loader } from './loader/loader';
-
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -25,11 +24,8 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...<Loader /></b>
   ) : (
-      <Suspense fallback={
-        <h1><Loader /></h1>
-      }>
     <Routes>
-      <Route path="/" element={<Navigation />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
           path="/register"
@@ -50,7 +46,6 @@ export const App = () => {
           }
         />
       </Route>
-      </Routes>
-      </Suspense>
+    </Routes>
   );
 };
