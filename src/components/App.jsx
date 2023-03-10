@@ -6,6 +6,7 @@ import { PrivateRoute } from './route/PrivateRoute';
 import { RestrictedRoute } from './route/RestrictedRoute';
 import { refreshUser } from 'Redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
+import { Loader } from './loader/loader';
 
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -25,7 +26,7 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
       <Suspense fallback={
-        <h1>...loader</h1>
+        <h1><Loader /></h1>
       }>
     <Routes>
       <Route path="/" element={<Navigation />}>
